@@ -53,3 +53,6 @@ html {
  ```
 
 also added `  height: 100%;` to the `body {}`
+
+### other
+`boxBufferGeometry` is changed to `boxGeometry`

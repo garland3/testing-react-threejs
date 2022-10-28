@@ -4,12 +4,13 @@ import React from "react";
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Stars } from "@react-three/drei"
 import './index.css';
-import {Physics, useBox } from "@react-three/cannon";
+import { Physics, useBox , usePlane} from "@react-three/cannon";
 
 
 function Box() {
+  const [ref] = useBox(() => ({ mass: 1 }));
   return (
-    <mesh position={[0, 0, 0]}>
+    <mesh ref={ref} position={[0, 0, 0]}>
       <boxBufferGeometry attach="geometry" />
       <meshLambertMaterial attach="material" color="green" />
     </mesh>
@@ -17,16 +18,22 @@ function Box() {
 }
 
 function Plane() {
+  const [ref] = usePlane (() => ({
+     rotation:  [-Math.PI / 2, 0, 0] 
+    }));
+
   return (
-    <mesh position={[0, -5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+    <mesh ref = {ref} position={[0, -5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
       <planeBufferGeometry attach="geometry" args={[100, 100]} />
       <meshLambertMaterial attach="material" color="blue" />
     </mesh>
   )
 }
 
+var offset = 7;
+
 export default function App() {
-  return <Canvas >
+  return <Canvas camera={{position: [offset, 3, offset]}}>
 
     <OrbitControls />
     <Physics>

@@ -1,4 +1,7 @@
-```
-npm init
-npm add  react react-dom react-scripts three @react-three/cannon @react-three/drei @react-three/fiber ebpack webpack-cli 
-```
+See the try2 readme
+
+# background
+Playing with threejs and react
+* https://threejs.org/
+* react-three-fiber https://docs.pmnd.rs/react-three-fiber/getting-started/your-first-scene
+
